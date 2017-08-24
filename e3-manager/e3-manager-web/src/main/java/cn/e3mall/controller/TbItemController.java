@@ -19,6 +19,7 @@ public class TbItemController {
 	public TbItem getTbItemById(@PathVariable Long itemId) {
 		
 		TbItem item = tbItemService.getTbItemById(itemId);
+		System.out.println("11");
 		return item;
 	}
 }
