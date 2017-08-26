@@ -5,6 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
+import cn.e3mall.common.pojo.EasyUIDataGridResult;
 import cn.e3mall.mapper.TbItemMapper;
 import cn.e3mall.pojo.TbItem;
 import cn.e3mall.pojo.TbItemExample;
@@ -28,4 +32,19 @@ public class TbItemServiceImpl implements TbItemService {
 		return null;
 	}
 
-}
+	@Override
+	public EasyUIDataGridResult getItemList(Integer page, Integer rows) {
+		PageHelper.startPage(page, rows);
+		TbItemExample example = new TbItemExample();
+		List<TbItem> list = tbItemMapper.selectByExample(example);
+		PageInfo<TbItem> info = new PageInfo<>(list);
+		EasyUIDataGridResult result = new EasyUIDataGridResult(info.getTotal(),info.getList());
+		
+		return result;
+	}
+
+
+
+	}
+
+
