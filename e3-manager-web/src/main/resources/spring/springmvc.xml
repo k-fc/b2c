@@ -21,7 +21,8 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<dubbo:application name="e3-manager-web"/>
-	<dubbo:registry protocol="zookeeper" address="192.168.232.132:2181"/>	
+	<dubbo:registry protocol="zookeeper" address="192.168.232.133:2181"/>	
 	<dubbo:reference interface="cn.e3mall.service.TbItemService" id="tbItemService" />
+	<dubbo:reference interface="cn.e3mall.service.TbItemCatService" id="tbItemCatService" />
 
 </beans>
