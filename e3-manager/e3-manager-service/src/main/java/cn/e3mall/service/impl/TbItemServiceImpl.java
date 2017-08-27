@@ -9,8 +9,11 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import cn.e3mall.common.pojo.EasyUIDataGridResult;
+import cn.e3mall.common.pojo.EasyUITreeNode;
+import cn.e3mall.mapper.TbItemCatMapper;
 import cn.e3mall.mapper.TbItemMapper;
 import cn.e3mall.pojo.TbItem;
+import cn.e3mall.pojo.TbItemCatExample;
 import cn.e3mall.pojo.TbItemExample;
 import cn.e3mall.pojo.TbItemExample.Criteria;
 import cn.e3mall.service.TbItemService;
@@ -19,6 +22,8 @@ public class TbItemServiceImpl implements TbItemService {
 
 	@Autowired
 	private TbItemMapper tbItemMapper;
+	@Autowired
+	private TbItemCatMapper tbItemCatMapper;
 	
 	@Override
 	public TbItem getTbItemById(Long ItemId) {
@@ -42,9 +47,6 @@ public class TbItemServiceImpl implements TbItemService {
 		
 		return result;
 	}
-
-
-
-	}
+}
 
 
